@@ -75,7 +75,7 @@ mcPB(~isPB) = mc1;
 
 % saving of pos files
 % phase boundary
-%savepos([pos, mcPB],'testPB.pos');
+savepos([pos, mcPB],'testPB.pos');
 
 
 % grain boundary
@@ -83,7 +83,7 @@ pos(:,1) = pos(:,1) - sz;
 GBpos = [pos, mcGB1];
 pos(:,1) = pos(:,1) + 2*sz;
 GBpos = [GBpos; [pos, mcGB2]];
-%savepos(GBpos,'testGB.pos');
+savepos(GBpos,'testGB.pos');
 
 
 %% synthesis of spherical precipitate
