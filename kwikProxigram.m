@@ -17,7 +17,7 @@ dist = sum(normals(closest,:) .* distVec,2);
 
 
 % calculating bin centers
-binvector = linspace(0,1000*bin,1001);
+binvector = linspace(0,10000*bin,10001);
 binvector = [fliplr(uminus(binvector(2:end))) binvector];
 binvector(binvector<min(dist) | binvector>max(dist)) = [];
 
