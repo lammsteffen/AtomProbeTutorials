@@ -74,16 +74,21 @@ for vert = 1:length(fv.vertices(:,1))
     in = sum(relCoord.^2,2) <= rad2;
     
     % center of mass of these points (unweighed)
-    cent = mean(relCoord(in,:),1);
+    cent(vert,:) = mean(relCoord(in,:),1);
+    numAt(vert) = length(relCoord(in,:));
     
     % project onto surface normal
-    shift = dot(cent,normals(vert,:));
+    shift(vert) = dot(cent(vert,:),normals(vert,:));
     
     %shift vertex coordinate
-    fv.vertices(vert,:) = fv.vertices(vert,:) + normals(vert,:) * shift;
-    
+    fv.vertices(vert,:) = fv.vertices(vert,:) + normals(vert,:) * shift(vert);
     
 end
+
+if numAt == 0
+    warning(['Vertices ', num2str(find(numAt == 0)), ' have no associated atoms. Position calculation fails']);
+end
+
 
 %% calculation of DCOM energy
 energy = sum(sqrt(sum((fv.vertices - fvOld.vertices).^2,2)));
