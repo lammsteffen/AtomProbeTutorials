@@ -46,11 +46,11 @@ for i = 1:numIon
     rng = ranges(rngIdx,:);
     
     %% writing the range variable to the base workspace
-    assignin('base',[ionName '_rng'],rng);
+    assignin('base',[ionName 'rng'],rng);
     
     if usePos && ~atomic
         tmpPos = selectRanges(pos,rng);
-        assignin('base',[ionName '_pos'],tmpPos);
+        assignin('base',[ionName 'pos'],tmpPos);
     end
     
     
@@ -72,7 +72,7 @@ if atomic
         end
         
         elementName = elements{el};
-        assignin('base',[elementName '_pos'],tmpPos);
+        assignin('base',[elementName 'pos'],tmpPos);
         
         
     end

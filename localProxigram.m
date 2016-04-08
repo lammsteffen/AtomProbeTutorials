@@ -21,7 +21,7 @@ function [binvector, proxi, error, counts] = localProxigram(parentPos,interface,
 addpath('Resources');
 
 DEBUG = false;
-PlotErrorBars = true;
+PlotErrorBars = false;
 
 %% creation of group parentPos
 

@@ -1,7 +1,7 @@
 function IEmap = kwikEmap(pos,interface,lim,deloc)
 % calculates an IE map for the patch 'interface' for the atoms in 'pos'
 % within 'lim' nm of the interface
-DEBUG = true;
+DEBUG = false;
 
 %%reads a pos file [x,y,z] converted to a Matlab variable and a vertex file
 %%[x,y,z] and assigns every atom to the closest vertex.
@@ -10,8 +10,9 @@ DEBUG = true;
 %shiftdistance
 %vertex: x y z obj# nx ny nz d A(or l)
 
-addpath('patch_normals','xml_tools');
-addpath('./general/resources/pos_tools');
+addpath('patch_normals');
+%addpath('./general/resources/pos_tools');
+addpath('dualMesh');
 %addpath('resources');
 
 
